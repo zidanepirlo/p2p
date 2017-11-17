@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>p2p</artifactId>
+        <groupId>com.newland.financial</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>common</artifactId>
+    <name>common</name>
+    <version>${common.version}</version>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.newland.financial</groupId>
+            <artifactId>facade</artifactId>
+            <version>${facade.version}</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>diamond-client</artifactId>
+            <groupId>com.taobao.diamond</groupId>
+            <version>2.0.5.4.taocode-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.7.0.RELEASE</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
