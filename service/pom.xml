@@ -13,6 +13,9 @@
     <name>service</name>
     <packaging>jar</packaging>
     <version>${service.version}</version>
+    <build>
+        <finalName>p2p-service</finalName>
+    </build>
 
     <dependencies>
 

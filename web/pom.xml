@@ -10,19 +10,10 @@
     <packaging>war</packaging>
     <version>${web.version}</version>
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-        </plugins>
+        <finalName>p2p-web</finalName>
     </build>
+
     <name>web</name>
-    <url>http://maven.apache.org</url>
 
 
     <dependencies>
@@ -131,8 +122,6 @@
         </dependency>
 
     </dependencies>
-
-
 
 
 </project>

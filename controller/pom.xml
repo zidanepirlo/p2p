@@ -11,7 +11,11 @@
 
     <artifactId>controller</artifactId>
     <name>controller</name>
+    <packaging>jar</packaging>
     <version>${controller.version}</version>
+    <build>
+        <finalName>p2p-controller</finalName>
+    </build>
 
     <dependencies>
 

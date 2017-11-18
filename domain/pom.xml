@@ -11,7 +11,9 @@
 
     <artifactId>domain</artifactId>
     <name>domain</name>
+    <packaging>jar</packaging>
     <version>${domain.version}</version>
+
     <dependencies>
 
         <dependency>
@@ -76,6 +78,7 @@
                 </includes>
             </resource>
         </resources>
+        <finalName>p2p-domain</finalName>
     </build>
 
 

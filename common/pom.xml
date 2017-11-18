@@ -13,6 +13,9 @@
     <name>common</name>
     <packaging>jar</packaging>
     <version>${common.version}</version>
+    <build>
+        <finalName>p2p-common</finalName>
+    </build>
 
     <dependencies>
 
