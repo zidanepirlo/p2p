@@ -15,7 +15,6 @@
         <module>facade</module>
         <module>service</module>
         <module>domain</module>
-        <module>cache</module>
     </modules>
 
     <properties>
