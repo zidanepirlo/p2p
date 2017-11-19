@@ -9,13 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common</artifactId>
-    <name>common</name>
+    <artifactId>p2p-common</artifactId>
+    <name>p2p-common</name>
     <packaging>jar</packaging>
     <version>${common.version}</version>
-    <build>
-        <finalName>p2p-common</finalName>
-    </build>
+    <!--<build>-->
+        <!--<finalName>p2p-common-${common.version}</finalName>-->
+    <!--</build>-->
 
     <dependencies>
 

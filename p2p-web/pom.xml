@@ -6,36 +6,32 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>web</artifactId>
+    <artifactId>p2p-web</artifactId>
     <packaging>war</packaging>
-    <version>${web.version}</version>
-    <build>
-        <finalName>p2p-web</finalName>
-    </build>
 
-    <name>web</name>
+    <name>p2p-web</name>
 
 
     <dependencies>
 
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>facade</artifactId>
+            <artifactId>p2p-facade</artifactId>
             <version>${facade.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>p2p-service</artifactId>
             <version>${service.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>controller</artifactId>
+            <artifactId>p2p-controller</artifactId>
             <version>${controller.version}</version>
         </dependency>
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>p2p-domain</artifactId>
             <version>${domain.version}</version>
         </dependency>
 

@@ -9,25 +9,25 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service</artifactId>
-    <name>service</name>
+    <artifactId>p2p-service</artifactId>
+    <name>p2p-service</name>
     <packaging>jar</packaging>
     <version>${service.version}</version>
-    <build>
-        <finalName>p2p-service</finalName>
-    </build>
+    <!--<build>-->
+        <!--<finalName>p2p-service-${service.version}</finalName>-->
+    <!--</build>-->
 
     <dependencies>
 
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>facade</artifactId>
+            <artifactId>p2p-facade</artifactId>
             <version>${facade.version}</version>
         </dependency>
 
         <dependency>
             <groupId>${project.parent.groupId}</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>p2p-domain</artifactId>
             <version>${domain.version}</version>
         </dependency>
 

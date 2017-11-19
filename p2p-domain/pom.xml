@@ -9,10 +9,22 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>domain</artifactId>
-    <name>domain</name>
+    <artifactId>p2p-domain</artifactId>
+    <name>p2p-domain</name>
     <packaging>jar</packaging>
     <version>${domain.version}</version>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*-Mapper.xml</include>
+                </includes>
+            </resource>
+        </resources>
+        <!--<finalName>p2p-domain-${domain.version}</finalName>-->
+    </build>
 
     <dependencies>
 
@@ -35,7 +47,7 @@
 
         <dependency>
             <groupId>com.newland.financial</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>p2p-common</artifactId>
             <version>${common.version}</version>
         </dependency>
 
@@ -69,17 +81,7 @@
         <!--<finalName>domain</finalName>-->
     <!--</build>-->
 
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*-Mapper.xml</include>
-                </includes>
-            </resource>
-        </resources>
-        <finalName>p2p-domain</finalName>
-    </build>
+
 
 
 </project>
