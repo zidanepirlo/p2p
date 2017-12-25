@@ -5,14 +5,31 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig" >
-        <!--最大空闲数-->
-        <property name="maxIdle" value="${redis.maxIdle}" />
-        <!--最大建立连接等待时间-->
+        <!--最大连接数, 默认20个-->
+        <property name="maxTotal" value="${redis.maxTotal}" />
+        <!--最小空闲连接数, 默认0-->
+        <property name="minIdle" value="${redis.minIdle}" />
+        <!--获取连接时的最大等待毫秒数(如果设置为阻塞时BlockWhenExhausted), 如果超时就抛异常, 小于零:阻塞不确定的时间, 默认 - 1-->
         <property name="maxWaitMillis" value="${redis.maxWait}" />
+        <!--最大空闲连接数, 默认20个-->
+        <property name="maxIdle" value="${redis.maxIdle}" />
         <!--是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个-->
         <property name="testOnBorrow" value="${redis.testOnBorrow}" />
-        <property name="maxTotal" value="${redis.maxTotal}" />
-        <property name="minIdle" value="${redis.minIdle}" />
+        <!--在return给pool时，是否提前进行validate操作-->
+        <property name="testOnReturn" value="${redis.testOnReturn}"/>
+        <!--在空闲时检查有效性, 默认false-->
+        <property name="testWhileIdle" value="${redis.testWhileIdle}"/>
+        <!--表示一个对象至少停留在idle状态的最短时间，然后才能被idle object evitor扫描并驱逐；这一项只有在timeBetweenEvictionRunsMillis大于0时才有意义-->
+        <property name="minEvictableIdleTimeMillis" value="${redis.minEvictableIdleTimeMillis}"/>
+        <!--表示idle object evitor每次扫描的最多的对象数-->
+        <property name="numTestsPerEvictionRun" value="${redis.numTestsPerEvictionRun}"/>
+        <!--在minEvictableIdleTimeMillis基础上，加入了至少minIdle个对象已经在pool里面了。
+        如果为-1，evicted不会根据idle time驱逐任何对象。如果minEvictableIdleTimeMillis>0，
+        则此项设置无意义，且只有在timeBetweenEvictionRunsMillis大于0时才有意义-->
+        <property name="softMinEvictableIdleTimeMillis" value="${redis.softMinEvictableIdleTimeMillis}"/>
+        <!--表示idle object evitor两次扫描之间要sleep的毫秒数-->
+        <property name="timeBetweenEvictionRunsMillis" value="${redis.timeBetweenEvictionRunsMillis}"/>
+
     </bean >
 
     <bean id="jedisUtil"  class="com.newland.financial.p2p.common.util.JedisUtil" >
@@ -22,7 +39,7 @@
         <property name="addressKeyPrefix" value="cluster" />   <!--  属性文件里  key的前缀 -->
         <property name="timeout" value="300000" />
         <property name="maxRedirections" value="6" />
-        <property name="genericObjectPoolConfig" ref="poolConfig" />
+        <property name="poolConfig" ref="poolConfig" />
     </bean >
 
     <bean id="distributedLock"  class="com.newland.financial.p2p.common.util.DistributedLock">

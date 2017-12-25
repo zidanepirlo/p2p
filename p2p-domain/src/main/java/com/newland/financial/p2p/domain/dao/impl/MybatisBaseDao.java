@@ -1,6 +1,5 @@
 package com.newland.financial.p2p.domain.dao.impl;
 
-//import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.PageInfo;
 import com.newland.financial.p2p.common.util.Constants;
 import com.newland.financial.p2p.common.util.PageModel;

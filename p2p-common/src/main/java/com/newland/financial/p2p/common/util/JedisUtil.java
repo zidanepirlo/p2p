@@ -19,6 +19,7 @@ import org.springframework.core.io.Resource;
 
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPoolConfig;
 
 public class JedisUtil implements FactoryBean<JedisCluster>, InitializingBean {
 
@@ -29,7 +30,8 @@ public class JedisUtil implements FactoryBean<JedisCluster>, InitializingBean {
     private JedisCluster jedisCluster;
     private Integer timeout;
     private Integer maxRedirections;
-    private GenericObjectPoolConfig poolConfig;
+
+    private JedisPoolConfig poolConfig;
     private Pattern p = Pattern.compile("^.+[:]\\d{1,5}\\s*$");
 
     public JedisCluster getObject() {
@@ -111,7 +113,7 @@ public class JedisUtil implements FactoryBean<JedisCluster>, InitializingBean {
         this.addressKeyPrefix = addressKeyPrefix;
     }
 
-    public void setGenericObjectPoolConfig(GenericObjectPoolConfig poolConfig) {
+    public void setPoolConfig(JedisPoolConfig poolConfig) {
         this.poolConfig = poolConfig;
     }
 

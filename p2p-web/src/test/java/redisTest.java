@@ -1,6 +1,8 @@
 import com.newland.financial.p2p.common.util.DistributedLock;
 import com.newland.financial.p2p.common.util.JedisUtil;
 import com.newland.financial.p2p.common.util.TimeUtil;
+import lombok.Getter;
+import lombok.Setter;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -11,7 +13,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import redis.clients.jedis.JedisCluster;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,14 +33,14 @@ public class redisTest {
     @Test
     public void test(){
 
-//        System.out.println(jedisUtil);
-//        jedisUtil.getObject().set("yuan","qing");
-//        String val =jedisUtil.getObject().get("yuan");
-//        logger.info("-----------------------------------------:"+val);
+        System.out.println(jedisUtil);
+        jedisUtil.getObject().set("yuan","qing");
+        String val =jedisUtil.getObject().get("yuan");
+        logger.info("-----------------------------------------:"+val);
 
-        Date expiry = TimeUtil.getDateExpiry(50000);
-        String str = jedisUtil.getObject().setex("yuan",(int) ((expiry.getTime() - System.currentTimeMillis()) / 1000),"qing");
-        logger.info("--------------------------st={}",str);
+//        Date expiry = TimeUtil.getDateExpiry(50000);
+//        String str = jedisUtil.getObject().setex("yuan",(int) ((expiry.getTime() - System.currentTimeMillis()) / 1000),"qing");
+//        logger.info("--------------------------st={}",str);
     }
 
     @Test
@@ -80,4 +84,38 @@ public class redisTest {
 
     }
 
+    @Setter
+    @Getter
+    class student{
+
+        private String name;
+        private String id;
+
+        @Override
+        public String toString() {
+            return "student{" +
+                    "id=" + id +
+                    ", name=" + name +
+                    '}';
+        }
+    }
+
+
+    @Test
+    public void testprint(){
+
+        List<student> studentList = new ArrayList<>();
+        student student1 = new student();
+        student1.setId("1");
+        student1.setName("yuan");
+
+        student student2 = new student();
+        student2.setId("2");
+        student2.setName("qing");
+
+        studentList.add(student1);
+        studentList.add(student2);
+
+        logger.info("students ,studentList={}",studentList);
+    }
 }
