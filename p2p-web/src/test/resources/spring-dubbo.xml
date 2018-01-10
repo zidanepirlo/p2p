@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://code.alibabatech.com/schema/dubbo
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--<dubbo:registry-->
+    <!--protocol="zookeeper"-->
+    <!--address="10.211.55.4:2181,110.211.55.5:2181,10.211.55.6:2181"-->
+    <!--/>-->
+
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="p2p_client"/>
+
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+    <dubbo:reference id="iTest" interface="com.yuan.dubbo.facade.ITest" version="DEV"/>
+    <dubbo:reference id="userFacade" interface="com.yuan.dubbo.facade.UserFacade" version="DEV"/>
+
+    <bean id="brave" class="com.github.kristofa.brave.dubbo.BraveFactoryBean"
+          p:serviceName="dubbo_client" p:zipkinHost="http://127.0.0.1:9411/" p:rate="1.0" ></bean>
+
+</beans>

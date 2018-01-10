@@ -3,6 +3,7 @@ import com.newland.financial.p2p.domain.entity.Student;
 import com.newland.financial.p2p.domain.entity.TCmmCity;
 import com.newland.financial.p2p.domain.entity.User;
 import com.newland.financial.p2p.service.IUserService;
+import com.yuan.dubbo.facade.ITest;
 import org.aspectj.weaver.ast.ITestVisitor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +30,17 @@ public class testService {
     @Autowired
     private IStudentDao studentDao;
 
-   // @Test
+    @Autowired
+    private ITest iTest;
+
+    @Test
+    public void dubboTest(){
+
+       String result = iTest.sayHello("yuanqing");
+       logger.info(result);
+    }
+
+    //@Test
     public void  testInsert(){
 
 //        User user = new User();

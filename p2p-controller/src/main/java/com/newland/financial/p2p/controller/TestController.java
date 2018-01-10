@@ -4,6 +4,8 @@ package com.newland.financial.p2p.controller;
 import com.newland.financial.p2p.domain.entity.TCmmCity;
 import com.newland.financial.p2p.domain.entity.User;
 import com.newland.financial.p2p.service.IUserService;
+import com.yuan.dubbo.facade.ITest;
+import com.yuan.dubbo.facade.UserFacade;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ public class TestController {
 
     @Autowired
     private IUserService userService;
+
+    @Autowired
+    private ITest iTest;
 
     public void getReqAndRes(HttpServletRequest request, HttpServletResponse response){
 
@@ -53,6 +58,14 @@ public class TestController {
         response.setCharacterEncoding("utf-8");
         response.setContentType("text/html; charset=utf-8");
         writer.write(list.get(0).getProvNm()+"--------"+list.get(0).getCityNm());
+    }
+
+    @RequestMapping("/dubboTest")
+    @ResponseBody
+    public String dubboTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        logger.info("TestController dubboTest");
+        String result = iTest.sayHello("yuanqing");
+        return result;
     }
 
 }
